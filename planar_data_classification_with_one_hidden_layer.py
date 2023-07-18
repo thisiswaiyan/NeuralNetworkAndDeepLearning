@@ -2,35 +2,35 @@
 import numpy as np
 import copy
 import matplotlib.pyplot as plt
-#from testCases_v2 import *
-#from public_tests import *
+from testCases_v2 import *
+from public_tests import *
 import sklearn
 import sklearn.datasets
 import sklearn.linear_model
-#from planar_utils import plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets
+from planar_utils import plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets
 
-#%matplotlib inline
-#%load_ext autoreload
-#%autoreload 2
+%matplotlib inline
+%load_ext autoreload
+%autoreload 2
 
 # loading the dataset
-#X, Y = load_planar_dataset()
-#shape_X = X.shape[0]
-#shape_Y = Y.shape[0]
-#m = X.shape[1] # training set
+X, Y = load_planar_dataset()
+shape_X = X.shape[0]
+shape_Y = Y.shape[0]
+m = X.shape[1] # training set
 
 # testing the model with logistic regression classifier
-#clf = sklearn.linear_model.LogisticRegressionCV();
-#clf.fit(X.T, Y.T);
+clf = sklearn.linear_model.LogisticRegressionCV();
+clf.fit(X.T, Y.T);
 
 # Plot the decision boundary for logistic regression
-#plot_decision_boundary(lambda x: clf.predict(x), X, Y)
-#plt.title("Logistic Regression")
+plot_decision_boundary(lambda x: clf.predict(x), X, Y)
+plt.title("Logistic Regression")
 
 # Print accuracy
-#LR_predictions = clf.predict(X.T)
-#print ('Accuracy of logistic regression: %d ' % float((np.dot(Y,LR_predictions) + np.dot(1-Y,1-LR_predictions))/float(Y.size)*100) +
- #      '% ' + "(percentage of correctly labelled datapoints)")
+LR_predictions = clf.predict(X.T)
+print ('Accuracy of logistic regression: %d ' % float((np.dot(Y,LR_predictions) + np.dot(1-Y,1-LR_predictions))/float(Y.size)*100) +
+       '% ' + "(percentage of correctly labelled datapoints)")
 
 
 def sigmoid(z):
@@ -58,8 +58,8 @@ def layer_sizes(X, Y):
     return (n_x, n_h, n_y)
 
 
-#t_X, t_Y = layer_sizes_test_case()
-#(n_x, n_h, n_y) = layer_sizes(t_X, t_Y)
+t_X, t_Y = layer_sizes_test_case()
+(n_x, n_h, n_y) = layer_sizes(t_X, t_Y)
 
 
 # Initializing the parameters
@@ -90,8 +90,8 @@ def initialize_parameters(n_x, n_h, n_y):
 
 
 np.random.seed(2)
-#n_x, n_h, n_y = initialize_parameters_test_case()
-#parameters = initialize_parameters(n_x, n_h, n_y)
+n_x, n_h, n_y = initialize_parameters_test_case()
+parameters = initialize_parameters(n_x, n_h, n_y)
 
 
 # Graded function: forward_propagation
@@ -125,8 +125,8 @@ def forward_propagation(X, parameters):
     return A2, cache
 
 
-#t_X, parameters = forward_propagation_test_case()
-#A2, cache = forward_propagation(t_X, parameters)
+t_X, parameters = forward_propagation_test_case()
+A2, cache = forward_propagation(t_X, parameters)
 
 
 # Graded function: compute_cost function
@@ -159,8 +159,8 @@ def backward_propagation(parameters, cache, X, Y):
     return grads
 
 
-#parameters, cache, t_X, t_Y = backward_propagation_test_case()
-#grads = backward_propagation(parameters, cache, t_X, t_Y)
+parameters, cache, t_X, t_Y = backward_propagation_test_case()
+grads = backward_propagation(parameters, cache, t_X, t_Y)
 
 
 # Graded function: update_parameters
@@ -231,6 +231,6 @@ def predict(parameters, X):
     return predictions
 
 
-#parameters, t_X = predict_test_case()
-#predictions = predict(parameters, t_X)
-#print("Predictions: " + str(predictions))
+parameters, t_X = predict_test_case()
+predictions = predict(parameters, t_X)
+print("Predictions: " + str(predictions))
