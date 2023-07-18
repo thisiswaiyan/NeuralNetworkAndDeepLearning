@@ -11,9 +11,9 @@ from scipy import ndimag
 #train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
 
 # training examples m
-#m_train = train_set_x_orig.shape[0]
-#m_test = test_set_x_orig.shape[0]
-#num_px = train_set_x_orig.shape[1]
+m_train = train_set_x_orig.shape[0]
+m_test = test_set_x_orig.shape[0]
+num_px = train_set_x_orig.shape[1]
 #shape of training examples ([209, 64, 64, 3])
 #numpx = number of height / width (64)
 #209 = training examples
@@ -22,20 +22,20 @@ from scipy import ndimag
 # flatten training set n test set
 # A trick to flatten the shape (a,b,c,d) to shape of (b*c*d, a)
 # x_flatten = x.reshape(x.shape[0], -1).T
-#train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[0], -1).T
-#test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[0], -1).T
+train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[0], -1).T
+test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[0], -1).T
 
 #Check the first 10 pixels are in the right place
-#assert np.alltrue(train_set_x_flatten[0:10, 1] == [196, 192, 190, 193, 186, 182, 188, 179, 174, 213]), "Wrong solution. Use (X.shape[0], -1).T"
-#assert np.alltrue(test_set_x_flatten[0:10, 1] == [115, 110, 111, 137, 129, 129, 155, 146, 145, 159]), "Wrong solution. Use (X.shape[0], -1).T"
+assert np.alltrue(train_set_x_flatten[0:10, 1] == [196, 192, 190, 193, 186, 182, 188, 179, 174, 213]), "Wrong solution. Use (X.shape[0], -1).T"
+assert np.alltrue(test_set_x_flatten[0:10, 1] == [115, 110, 111, 137, 129, 129, 155, 146, 145, 159]), "Wrong solution. Use (X.shape[0], -1).T"
 
-#print ("train_set_x_flatten shape: " + str(train_set_x_flatten.shape))
-#print ("train_set_y shape: " + str(train_set_y.shape))
-#print ("test_set_x_flatten shape: " + str(test_set_x_flatten.shape))
-#print ("test_set_y shape: " + str(test_set_y.shape))
+print ("train_set_x_flatten shape: " + str(train_set_x_flatten.shape))
+print ("train_set_y shape: " + str(train_set_y.shape))
+print ("test_set_x_flatten shape: " + str(test_set_x_flatten.shape))
+print ("test_set_y shape: " + str(test_set_y.shape))
 
-#train_set_x = train_set_x_flatten / 255
-#test_set_x = test_set_x_flatten / 255
+train_set_x = train_set_x_flatten / 255
+test_set_x = test_set_x_flatten / 255
 
 
 # sigmoid function (sigmoid(z) = 1 / (1 + e^(-z))) where z = w.Tx + b
